@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>A股板块罗盘 · 场外指数基金追踪</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+  <!-- 顶栏 -->
+  <header class="topbar">
+    <div class="tb-main">
+      <h1>板块罗盘</h1>
+      <span class="tb-sub" id="asOf">加载中</span>
+    </div>
+    <div class="tb-stat" id="tbStat"></div>
+  </header>
+
+  <!-- 主榜切换 -->
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-rank="trend">
+      <b>做多动量榜</b><i id="cntTrend">趋势走强</i>
+    </button>
+    <button class="tab" data-rank="bottom">
+      <b>超跌见底榜</b><i id="cntBottom">地量待启</i>
+    </button>
+    <button class="tab" data-rank="short">
+      <b>短线榜</b><i id="cntShort">量价动能</i>
+    </button>
+  </nav>
+
+  <!-- 更新按钮 -->
+  <div class="updatebar">
+    <button id="btnUpdate" class="update-btn">↻ 更新实时数据</button>
+    <span id="updateInfo" class="update-info"></span>
+  </div>
+
+  <!-- 全球行情 -->
+  <div class="globalbar" id="globalBar"></div>
+
+  <!-- 说明条 -->
+  <div class="hint" id="hint"></div>
+
+  <!-- 搜索 -->
+  <div class="searchbar">
+    <input type="search" id="searchInput" placeholder="搜索指数名称或代码（如：白酒、000300）" />
+    <button id="searchClear" style="display:none">✕</button>
+  </div>
+
+  <!-- 筛选 -->
+  <div class="filters">
+    <div class="chips" id="catChips"></div>
+    <div class="sortbar">
+      <span class="sortlabel">排序</span>
+      <div class="chips small" id="sortChips"></div>
+    </div>
+  </div>
+
+  <!-- 榜单 -->
+  <main class="list" id="list"></main>
+
+  <footer class="foot">
+    数据来自公开行情接口，仅供研究参考，不构成投资建议
+  </footer>
+</div>
+
+<!-- 详情层 -->
+<div class="detail" id="detail">
+  <div class="d-topbar">
+    <button class="back" id="btnBack">返回</button>
+    <div class="d-title"><b id="dName"></b><span id="dCode"></span></div>
+    <div style="width:44px"></div>
+  </div>
+  <div class="d-body" id="dBody"></div>
+</div>
+
+<script src="data.js?v=202609090920"></script>
+<script src="chart.js?v=202609090920"></script>
+<script src="rt.js?v=202609090920"></script>
+<script src="app.js?v=202609090920"></script>
+</body>
+</html>
